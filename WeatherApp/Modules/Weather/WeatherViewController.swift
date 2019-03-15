@@ -10,4 +10,15 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
+    // MARK: - Public properties
+    
+    var viewModel: WeatherViewModel = WeatherViewModel()
+    
+    // MARK: - Life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.loadData()
+    }
 }
