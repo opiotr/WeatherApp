@@ -17,7 +17,7 @@ class WeatherViewModel {
     
     // MARK: - Init
     
-    init(dataFetcher: WeatherDataFetcher = WeatherDataFetcher()) {
+    init(dataFetcher: WeatherDataFetcher) {
         self.dataFetcher = dataFetcher
     }
     

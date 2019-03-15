@@ -16,7 +16,7 @@ class WeatherDataFetcher {
     
     // MARK: - Init
     
-    init(networkingService: HTTPClient = HTTPClient()) {
+    init(networkingService: HTTPClient) {
         self.networkingService = networkingService
     }
     
