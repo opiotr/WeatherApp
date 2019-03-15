@@ -12,7 +12,7 @@ class WeatherViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var viewModel: WeatherViewModel = WeatherViewModel()
+    var viewModel: WeatherViewModel!
     
     // MARK: - Life cycle
     
