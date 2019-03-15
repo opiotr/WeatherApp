@@ -24,10 +24,30 @@ class WeatherViewModel {
     // MARK: - Access methods
     
     func loadData() {
-        dataFetcher.fetchWeatherData(for: locationId, success: { [weak self] data in
-            print(data)
+        dataFetcher.fetchWeatherData(for: locationId, success: { [unowned self] data in
+            let domain = self.mapToLocalWeatherDomain(remote: data)
+            print(domain)
             }, failure: { error in
                 print(error)
         })
+    }
+    
+    // MARK: - Data mapping
+    
+    private func mapToLocalWeatherDomain(remote: LocalWeatherRemote) -> LocalWeatherDomain {
+        let consolidatedWeather = remote.consolidatedWeather.map {
+            WeatherDetailsDomain(weatherStateName: $0.weatherStateName,
+                                 weatherStateAbbreviation: $0.weatherStateAbbr,
+                                 applicableDate: $0.applicableDate,
+                                 temperature: $0.theTemp.roundToInt(),
+                                 minTemperature: $0.minTemp.roundToInt(),
+                                 maxTemperature: $0.maxTemp.roundToInt(),
+                                 windSpeed: $0.windSpeed.roundToInt(),
+                                 airPressure: $0.airPressure.roundToInt(),
+                                 humidity: $0.humidity)
+        }
+        
+        return LocalWeatherDomain(locationName: remote.title.uppercased(),
+                                  consolidatedWeather: consolidatedWeather)
     }
 }
