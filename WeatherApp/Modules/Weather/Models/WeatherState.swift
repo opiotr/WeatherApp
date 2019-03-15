@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum WeatherState: String, Decodable {
+enum WeatherState: String, Codable {
     case snow = "sn"
     case sleet = "sl"
     case hail = "h"

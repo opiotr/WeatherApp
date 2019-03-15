@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LocalWeatherRemote: Decodable {
+struct LocalWeatherRemote: Codable {
     let consolidatedWeather: [WeatherDetailsRemote]
     let title: String
     let locationType: String

@@ -10,17 +10,13 @@ import Alamofire
 
 final class HTTPClient {
     
-    // MARK: - Singleton
-    
-    static let shared = HTTPClient()
-    
     // MARK: - Private properties
     
     private let sessionManager: SessionManager
     
     // MARK: - Initialization
     
-    private init(sessionManager: SessionManager = .default) {
+    init(sessionManager: SessionManager = .default) {
         self.sessionManager = sessionManager
     }
     

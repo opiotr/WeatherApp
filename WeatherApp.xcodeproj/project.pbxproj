@@ -11,6 +11,8 @@
 		42C3FEAAA6FC7B0A2CDCE4BA /* Pods_WeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECEE455728ADB1F5E95CFC9 /* Pods_WeatherAppTests.framework */; };
 		AE0C2072223BFF290073D0A8 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C2071223BFF290073D0A8 /* HTTPClient.swift */; };
 		AE0C2074223C00040073D0A8 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C2073223C00040073D0A8 /* Endpoint.swift */; };
+		AE0C2078223C2F9A0073D0A8 /* WeatherDataFecher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C2077223C2F9A0073D0A8 /* WeatherDataFecher.swift */; };
+		AE0C207A223C31FD0073D0A8 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C2079223C31FD0073D0A8 /* WeatherViewModel.swift */; };
 		AE9CAAAC223ACD0200AB66F8 /* LocalWeatherRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9CAAAB223ACD0200AB66F8 /* LocalWeatherRemote.swift */; };
 		AE9CAAAE223ACD5C00AB66F8 /* WeatherDetailsRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9CAAAD223ACD5C00AB66F8 /* WeatherDetailsRemote.swift */; };
 		AE9CAAB0223AD23900AB66F8 /* WeatherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9CAAAF223AD23900AB66F8 /* WeatherState.swift */; };
@@ -42,6 +44,8 @@
 		33D5BF98C08E3E5AE7C03718 /* Pods-WeatherAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE0C2071223BFF290073D0A8 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		AE0C2073223C00040073D0A8 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		AE0C2077223C2F9A0073D0A8 /* WeatherDataFecher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataFecher.swift; sourceTree = "<group>"; };
+		AE0C2079223C31FD0073D0A8 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		AE9CAAAB223ACD0200AB66F8 /* LocalWeatherRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWeatherRemote.swift; sourceTree = "<group>"; };
 		AE9CAAAD223ACD5C00AB66F8 /* WeatherDetailsRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsRemote.swift; sourceTree = "<group>"; };
 		AE9CAAAF223AD23900AB66F8 /* WeatherState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherState.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 			children = (
 				AE9CAAAA223ACBD200AB66F8 /* Models */,
 				AEE8EFAF223AC63A008BE6C6 /* WeatherViewController.swift */,
+				AE0C2077223C2F9A0073D0A8 /* WeatherDataFecher.swift */,
+				AE0C2079223C31FD0073D0A8 /* WeatherViewModel.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -382,9 +388,11 @@
 				AE0C2074223C00040073D0A8 /* Endpoint.swift in Sources */,
 				AEE8EFB0223AC63A008BE6C6 /* WeatherViewController.swift in Sources */,
 				AE0C2072223BFF290073D0A8 /* HTTPClient.swift in Sources */,
+				AE0C207A223C31FD0073D0A8 /* WeatherViewModel.swift in Sources */,
 				AE9CAAAC223ACD0200AB66F8 /* LocalWeatherRemote.swift in Sources */,
 				AE9CAAB0223AD23900AB66F8 /* WeatherState.swift in Sources */,
 				AEE8EF79223AC1AF008BE6C6 /* AppDelegate.swift in Sources */,
+				AE0C2078223C2F9A0073D0A8 /* WeatherDataFecher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
