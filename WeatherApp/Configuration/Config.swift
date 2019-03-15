@@ -9,5 +9,5 @@
 import Foundation
 
 struct Config {
-    static let baseApiUrl = "https://www.metaweather.com/api/"
+    static let baseApiUrl: String = "https://www.metaweather.com/api/location"
 }
