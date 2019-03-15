@@ -1,16 +1,25 @@
 PODS:
   - Alamofire (4.8.1)
+  - Swinject (2.5.0)
+  - SwinjectStoryboard (2.1.0):
+    - Swinject (~> 2.5)
 
 DEPENDENCIES:
   - Alamofire (= 4.8.1)
+  - Swinject (= 2.5.0)
+  - SwinjectStoryboard (= 2.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Swinject
+    - SwinjectStoryboard
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
 
-PODFILE CHECKSUM: cabbae01fdc61d3c1e7b508a13833bf4ab0dbff6
+PODFILE CHECKSUM: e550968c7746df8326491b5d16b283cab7311ae8
 
 COCOAPODS: 1.5.3
