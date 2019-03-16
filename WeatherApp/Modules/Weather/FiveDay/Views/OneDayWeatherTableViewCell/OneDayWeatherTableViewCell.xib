@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="R5a-DH-IDX" customClass="OneDayWeatherTableViewCell" customModule="WeatherApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R5a-DH-IDX" id="gJh-XY-76I">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glf-G1-x9G">
+                        <rect key="frame" x="12" y="18" width="88" height="103.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrU-ww-ae4">
+                        <rect key="frame" x="275.5" y="18" width="87.5" height="103.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z17-UW-Bgk">
+                        <rect key="frame" x="118" y="23.5" width="139.5" height="93"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="z17-UW-Bgk" secondAttribute="height" multiplier="3:2" id="u87-G0-DjJ"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="z17-UW-Bgk" firstAttribute="centerX" secondItem="gJh-XY-76I" secondAttribute="centerX" id="3G8-eb-Rg9"/>
+                    <constraint firstAttribute="trailing" secondItem="zrU-ww-ae4" secondAttribute="trailing" constant="12" id="3pE-cu-nLk"/>
+                    <constraint firstItem="z17-UW-Bgk" firstAttribute="centerY" secondItem="gJh-XY-76I" secondAttribute="centerY" id="6K6-7o-v0E"/>
+                    <constraint firstItem="z17-UW-Bgk" firstAttribute="leading" secondItem="Glf-G1-x9G" secondAttribute="trailing" constant="18" id="8Bz-Tb-NBi"/>
+                    <constraint firstItem="z17-UW-Bgk" firstAttribute="height" secondItem="gJh-XY-76I" secondAttribute="height" multiplier="2:3" id="T1c-z1-0Sz"/>
+                    <constraint firstItem="Glf-G1-x9G" firstAttribute="leading" secondItem="gJh-XY-76I" secondAttribute="leading" constant="12" id="XJa-HL-pqg"/>
+                    <constraint firstItem="Glf-G1-x9G" firstAttribute="top" secondItem="gJh-XY-76I" secondAttribute="top" constant="18" id="YkJ-zK-Viy"/>
+                    <constraint firstItem="zrU-ww-ae4" firstAttribute="leading" secondItem="z17-UW-Bgk" secondAttribute="trailing" constant="18" id="bpB-N4-Pet"/>
+                    <constraint firstAttribute="bottom" secondItem="Glf-G1-x9G" secondAttribute="bottom" constant="18" id="fhK-1y-xYn"/>
+                    <constraint firstAttribute="bottom" secondItem="zrU-ww-ae4" secondAttribute="bottom" constant="18" id="fwW-av-vfa"/>
+                    <constraint firstItem="zrU-ww-ae4" firstAttribute="top" secondItem="gJh-XY-76I" secondAttribute="top" constant="18" id="u6B-6p-4S0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="Glf-G1-x9G" id="2Is-sr-dmm"/>
+                <outlet property="temperatureLabel" destination="zrU-ww-ae4" id="I2Z-jJ-7uL"/>
+                <outlet property="weatherStateImageView" destination="z17-UW-Bgk" id="ggi-Wn-1uf"/>
+            </connections>
+            <point key="canvasLocation" x="80.799999999999997" y="101.64917541229386"/>
+        </tableViewCell>
+    </objects>
+</document>
