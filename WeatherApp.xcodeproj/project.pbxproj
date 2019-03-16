@@ -186,6 +186,7 @@
 		AE9F0735223D103C00D302F8 /* FiveDay */ = {
 			isa = PBXGroup;
 			children = (
+				AEA184D6223D7A3A00EAC637 /* Views */,
 				AE9F0738223D108200D302F8 /* FiveDayWeatherViewController.swift */,
 				AE89E0CC223D467300731321 /* FiveDayWeatherViewModel.swift */,
 			);
@@ -200,6 +201,13 @@
 				AE89E0CA223D1BF800731321 /* WeatherPagerViewControllerFactory.swift */,
 			);
 			path = Pager;
+			sourceTree = "<group>";
+		};
+		AEA184D6223D7A3A00EAC637 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AEE8EF6C223AC1AF008BE6C6 = {

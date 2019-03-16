@@ -12,11 +12,11 @@ class FiveDayWeatherViewModel {
     
     // MARK: - Public properties
     
-    let data: [WeatherDetailsDomain]
+    let weatherDataList: [WeatherDetailsDomain]
     
     // MARK: - Init
     
-    init(data: [WeatherDetailsDomain]) {
-        self.data = data
+    init(weatherDataList: [WeatherDetailsDomain]) {
+        self.weatherDataList = weatherDataList
     }
 }

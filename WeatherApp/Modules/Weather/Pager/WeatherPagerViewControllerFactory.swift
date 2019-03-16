@@ -30,13 +30,13 @@ class WeatherPagerViewControllerFactory {
         return controller
     }
     
-    func makeFiveDayWeatherViewController(with data: [WeatherDetailsDomain]) -> UIViewController {
+    func makeFiveDayWeatherViewController(with weatherDataList: [WeatherDetailsDomain]) -> UIViewController {
         guard let controller = storyboard.instantiateViewController(withIdentifier: fiveDayWeatherViewControllerIdentifier) as? FiveDayWeatherViewController else {
             fatalError("Couldn't instantinate controller with identifier \(fiveDayWeatherViewControllerIdentifier)")
         }
         
         controller.viewModel = DependencyContainer.container.resolve(FiveDayWeatherViewModel.self,
-                                                                     argument: data)
+                                                                     argument: weatherDataList)
         return controller
     }
 }

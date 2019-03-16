@@ -31,8 +31,8 @@ final class DependencyContainer {
         container.register(DailyWeatherViewModel.self) { resolver, locationName, weatherDetails in
             DailyWeatherViewModel(locationName: locationName, weatherDetails: weatherDetails)
         }
-        container.register(FiveDayWeatherViewModel.self) { resolver, data in
-            FiveDayWeatherViewModel(data: data)
+        container.register(FiveDayWeatherViewModel.self) { resolver, weatherDataList in
+            FiveDayWeatherViewModel(weatherDataList: weatherDataList)
         }
         
         // MARK: - Others
