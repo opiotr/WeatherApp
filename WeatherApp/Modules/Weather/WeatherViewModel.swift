@@ -14,6 +14,7 @@ class WeatherViewModel {
     
     private let dataFetcher: WeatherDataFetcher
     private let locationId: Int = 523920
+    private var weatherData: LocalWeatherDomain?
     
     // MARK: - Init
     
@@ -25,29 +26,46 @@ class WeatherViewModel {
     
     func loadData() {
         dataFetcher.fetchWeatherData(for: locationId, success: { [unowned self] data in
-            let domain = self.mapToLocalWeatherDomain(remote: data)
-            print(domain)
-            }, failure: { error in
-                print(error)
+            self.prepareDataForView(from: data)
+            print(self.weatherData)
+        }, failure: { error in
+            print(error)
         })
     }
     
     // MARK: - Data mapping
     
-    private func mapToLocalWeatherDomain(remote: LocalWeatherRemote) -> LocalWeatherDomain {
-        let consolidatedWeather = remote.consolidatedWeather.map {
-            WeatherDetailsDomain(weatherStateName: $0.weatherStateName,
-                                 weatherStateAbbreviation: $0.weatherStateAbbr,
-                                 applicableDate: $0.applicableDate,
-                                 temperature: $0.theTemp.roundToInt(),
-                                 minTemperature: $0.minTemp.roundToInt(),
-                                 maxTemperature: $0.maxTemp.roundToInt(),
-                                 windSpeed: $0.windSpeed.roundToInt(),
-                                 airPressure: $0.airPressure.roundToInt(),
-                                 humidity: $0.humidity)
-        }
+    private func prepareDataForView(from remoteObject: LocalWeatherRemote) {
+        let domain = createLocalWeatherDomain(remoteObject: remoteObject)
+        weatherData = domain
+    }
+    
+    private func createLocalWeatherDomain(remoteObject: LocalWeatherRemote) -> LocalWeatherDomain {
+        let consolidatedWeather = remoteObject.consolidatedWeather
+            .sorted(by: { $0.applicableDate < $1.applicableDate })
+            .map { createWeatherDetailsDomain(from: $0) }
         
-        return LocalWeatherDomain(locationName: remote.title.uppercased(),
-                                  consolidatedWeather: consolidatedWeather)
+        let currentDayWeather = consolidatedWeather.first! // TODO: Handle force unwrap
+        let nextFiveDaysWeather = Array(consolidatedWeather.dropFirst())
+        
+        return LocalWeatherDomain(locationName: remoteObject.title.uppercased(),
+                                  currentDayWeather: currentDayWeather,
+                                  nextFiveDaysWeather: nextFiveDaysWeather)
+    }
+    
+    private func createWeatherDetailsDomain(from remoteObject: WeatherDetailsRemote) -> WeatherDetailsDomain {
+        let formattedApplicableDate = remoteObject.applicableDate
+            .toDate(withFormat: "yyyy-mm-dd")?
+            .toString(withFormat: "dd.mm") ?? ""
+        
+        return WeatherDetailsDomain(weatherStateName: remoteObject.weatherStateName,
+                                    weatherStateAbbreviation: remoteObject.weatherStateAbbr,
+                                    applicableDate: formattedApplicableDate,
+                                    temperature: remoteObject.theTemp.roundToInt(),
+                                    minTemperature: remoteObject.minTemp.roundToInt(),
+                                    maxTemperature: remoteObject.maxTemp.roundToInt(),
+                                    windSpeed: remoteObject.windSpeed.roundToInt(),
+                                    airPressure: remoteObject.airPressure.roundToInt(),
+                                    humidity: remoteObject.humidity)
     }
 }
