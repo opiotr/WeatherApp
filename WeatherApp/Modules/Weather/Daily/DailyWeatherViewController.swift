@@ -1,24 +1,24 @@
 //
-//  WeatherViewController.swift
+//  DailyWeatherViewController.swift
 //  WeatherApp
 //
-//  Created by Piotr Olech on 14/03/2019.
+//  Created by Piotr Olech on 16/03/2019.
 //  Copyright © 2019 Piotr Olech. All rights reserved.
 //
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class DailyWeatherViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var viewModel: WeatherViewModel!
+    var viewModel: DailyWeatherViewModel!
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.loadData()
+        
     }
 }

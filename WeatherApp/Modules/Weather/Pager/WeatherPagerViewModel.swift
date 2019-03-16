@@ -1,5 +1,5 @@
 //
-//  WeatherViewModel.swift
+//  WeatherPagerViewModel.swift
 //  WeatherApp
 //
 //  Created by Piotr Olech on 15/03/2019.
@@ -8,13 +8,17 @@
 
 import Foundation
 
-class WeatherViewModel {
+class WeatherPagerViewModel {
+    
+    // MARK: - Public properties
+    
+    var onLoadDataSuccess: ((LocalWeatherDomain) -> Void)?
+    var onLoadDataError: ((NSError) -> Void)?
     
     // MARK: - Private properties
     
     private let dataFetcher: WeatherDataFetcher
     private let locationId: Int = 523920
-    private var weatherData: LocalWeatherDomain?
     
     // MARK: - Init
     
@@ -26,18 +30,18 @@ class WeatherViewModel {
     
     func loadData() {
         dataFetcher.fetchWeatherData(for: locationId, success: { [unowned self] data in
-            self.prepareDataForView(from: data)
-            print(self.weatherData)
+            let domain = self.prepareDataForView(from: data)
+            self.onLoadDataSuccess?(domain)
         }, failure: { error in
-            print(error)
+            self.onLoadDataError?(error as NSError)
         })
     }
     
     // MARK: - Data mapping
     
-    private func prepareDataForView(from remoteObject: LocalWeatherRemote) {
+    private func prepareDataForView(from remoteObject: LocalWeatherRemote) -> LocalWeatherDomain {
         let domain = createLocalWeatherDomain(remoteObject: remoteObject)
-        weatherData = domain
+        return domain
     }
     
     private func createLocalWeatherDomain(remoteObject: LocalWeatherRemote) -> LocalWeatherDomain {
@@ -46,11 +50,11 @@ class WeatherViewModel {
             .map { createWeatherDetailsDomain(from: $0) }
         
         let currentDayWeather = consolidatedWeather.first! // TODO: Handle force unwrap
-        let nextFiveDaysWeather = Array(consolidatedWeather.dropFirst())
+        let fiveDayWeather = Array(consolidatedWeather.dropFirst())
         
         return LocalWeatherDomain(locationName: remoteObject.title.uppercased(),
                                   currentDayWeather: currentDayWeather,
-                                  nextFiveDaysWeather: nextFiveDaysWeather)
+                                  fiveDayWeather: fiveDayWeather)
     }
     
     private func createWeatherDetailsDomain(from remoteObject: WeatherDetailsRemote) -> WeatherDetailsDomain {

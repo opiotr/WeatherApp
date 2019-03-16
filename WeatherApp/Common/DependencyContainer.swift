@@ -12,18 +12,40 @@ import SwinjectStoryboard
 final class DependencyContainer {
     static var container: Container = {
         let container = Container()
-        container.storyboardInitCompleted(WeatherViewController.self) { resolver, controller in
-            controller.viewModel = resolver.resolve(WeatherViewModel.self)
+        
+        // MARK: - Controllers
+        
+        container.storyboardInitCompleted(WeatherPagerViewController.self) { resolver, controller in
+            controller.viewModel = resolver.resolve(WeatherPagerViewModel.self)
+            controller.controllerFactory = resolver.resolve(WeatherPagerViewControllerFactory.self)
         }
-        container.register(WeatherViewModel.self) { resolver in
-            WeatherViewModel(dataFetcher: resolver.resolve(WeatherDataFetcher.self)!)
+        container.storyboardInitCompleted(DailyWeatherViewController.self) { _, _ in }
+        container.storyboardInitCompleted(FiveDayWeatherViewController.self) { _, _ in }
+        container.storyboardInitCompleted(UIPageViewController.self) { _, _ in }
+        
+        // MARK: - View models
+        
+        container.register(WeatherPagerViewModel.self) { resolver in
+            WeatherPagerViewModel(dataFetcher: resolver.resolve(WeatherDataFetcher.self)!)
+        }
+        container.register(DailyWeatherViewModel.self) { resolver, locationName, weatherDetails in
+            DailyWeatherViewModel(locationName: locationName, weatherDetails: weatherDetails)
+        }
+        container.register(FiveDayWeatherViewModel.self) { resolver, data in
+            FiveDayWeatherViewModel(data: data)
+        }
+        
+        // MARK: - Others
+        
+        container.register(WeatherPagerViewControllerFactory.self) { resolver in
+            WeatherPagerViewControllerFactory()
         }
         container.register(WeatherDataFetcher.self) { resolver in
             WeatherDataFetcher(networkingService: resolver.resolve(HTTPClient.self)!)
         }
         container.register(HTTPClient.self) { _ in
             HTTPClient()
-            }.inObjectScope(.container)
+        }.inObjectScope(.container)
         
         return container
     }()

@@ -11,5 +11,5 @@ import Foundation
 struct LocalWeatherDomain {
     let locationName: String
     let currentDayWeather: WeatherDetailsDomain
-    let nextFiveDaysWeather: [WeatherDetailsDomain]
+    let fiveDayWeather: [WeatherDetailsDomain]
 }
