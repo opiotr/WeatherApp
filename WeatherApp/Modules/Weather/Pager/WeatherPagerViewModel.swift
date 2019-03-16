@@ -10,11 +10,15 @@ import Foundation
 
 class WeatherPagerViewModel {
     
+    // MARK: - Public properties
+    
+    var onLoadDataSuccess: ((LocalWeatherDomain) -> Void)?
+    var onLoadDataError: ((NSError) -> Void)?
+    
     // MARK: - Private properties
     
     private let dataFetcher: WeatherDataFetcher
     private let locationId: Int = 523920
-    private var weatherData: LocalWeatherDomain?
     
     // MARK: - Init
     
@@ -26,18 +30,18 @@ class WeatherPagerViewModel {
     
     func loadData() {
         dataFetcher.fetchWeatherData(for: locationId, success: { [unowned self] data in
-            self.prepareDataForView(from: data)
-            print(self.weatherData)
+            let domain = self.prepareDataForView(from: data)
+            self.onLoadDataSuccess?(domain)
         }, failure: { error in
-            print(error)
+            self.onLoadDataError?(error as NSError)
         })
     }
     
     // MARK: - Data mapping
     
-    private func prepareDataForView(from remoteObject: LocalWeatherRemote) {
+    private func prepareDataForView(from remoteObject: LocalWeatherRemote) -> LocalWeatherDomain {
         let domain = createLocalWeatherDomain(remoteObject: remoteObject)
-        weatherData = domain
+        return domain
     }
     
     private func createLocalWeatherDomain(remoteObject: LocalWeatherRemote) -> LocalWeatherDomain {
