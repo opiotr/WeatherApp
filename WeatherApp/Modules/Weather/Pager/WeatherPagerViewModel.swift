@@ -1,5 +1,5 @@
 //
-//  WeatherViewModel.swift
+//  WeatherPagerViewModel.swift
 //  WeatherApp
 //
 //  Created by Piotr Olech on 15/03/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WeatherViewModel {
+class WeatherPagerViewModel {
     
     // MARK: - Private properties
     
@@ -46,11 +46,11 @@ class WeatherViewModel {
             .map { createWeatherDetailsDomain(from: $0) }
         
         let currentDayWeather = consolidatedWeather.first! // TODO: Handle force unwrap
-        let nextFiveDaysWeather = Array(consolidatedWeather.dropFirst())
+        let fiveDayWeather = Array(consolidatedWeather.dropFirst())
         
         return LocalWeatherDomain(locationName: remoteObject.title.uppercased(),
                                   currentDayWeather: currentDayWeather,
-                                  nextFiveDaysWeather: nextFiveDaysWeather)
+                                  fiveDayWeather: fiveDayWeather)
     }
     
     private func createWeatherDetailsDomain(from remoteObject: WeatherDetailsRemote) -> WeatherDetailsDomain {
