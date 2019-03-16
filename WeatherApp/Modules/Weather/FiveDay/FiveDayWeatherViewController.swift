@@ -29,8 +29,10 @@ class FiveDayWeatherViewController: UIViewController {
     // MARK: - Setup
     
     private func setupTableView() {
+        tableView.register(UINib(nibName: String(describing: OneDayWeatherTableViewCell.self), bundle: .main), forCellReuseIdentifier: String(describing: OneDayWeatherTableViewCell.self))
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        tableView.rowHeight = 90
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -48,6 +50,10 @@ extension FiveDayWeatherViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: OneDayWeatherTableViewCell.self)) as? OneDayWeatherTableViewCell else {
+            return UITableViewCell()
+        }
+        let data = viewModel.weatherDataList[indexPath.row]
+        return cell
     }
 }
