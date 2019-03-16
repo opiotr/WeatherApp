@@ -10,4 +10,15 @@ import UIKit
 
 class FiveDayWeatherViewController: UIViewController {
     
+    // MARK: - Public properties
+    
+    var viewModel: FiveDayWeatherViewModel!
+    
+    // MARK: - Life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+    }
 }

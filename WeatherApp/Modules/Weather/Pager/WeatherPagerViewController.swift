@@ -62,8 +62,8 @@ class WeatherPagerViewController: UIViewController {
     }
     
     private func setupPagerViewControllers(with data: LocalWeatherDomain) {
-        let dailyWeatherController = controllerFactory.makeDailyWeatherViewController()
-        let fiveDayWeatherController = controllerFactory.makeFiveDayWeatherViewController()
+        let dailyWeatherController = controllerFactory.makeDailyWeatherViewController(for: data.locationName, with: data.currentDayWeather)
+        let fiveDayWeatherController = controllerFactory.makeFiveDayWeatherViewController(with: data.fiveDayWeather)
         viewControllers = [dailyWeatherController, fiveDayWeatherController]
     }
     

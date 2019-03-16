@@ -10,4 +10,15 @@ import UIKit
 
 class DailyWeatherViewController: UIViewController {
     
+    // MARK: - Public properties
+    
+    var viewModel: DailyWeatherViewModel!
+    
+    // MARK: - Life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+    }
 }
