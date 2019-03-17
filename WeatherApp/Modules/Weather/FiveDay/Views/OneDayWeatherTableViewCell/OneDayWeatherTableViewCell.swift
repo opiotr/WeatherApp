@@ -23,8 +23,23 @@ class OneDayWeatherTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         selectionStyle = .none
+        setupDateLabel()
+        setupTemperatureLabel()
+        setupWeatherStateImageView()
+    }
+    
+    private func setupDateLabel() {
         dateLabel.font = Font.helveticaNeueRegular(size: 16)
+        dateLabel.numberOfLines = 2
+        dateLabel.lineBreakMode = .byWordWrapping
+    }
+    
+    private func setupTemperatureLabel() {
         temperatureLabel.font = Font.helveticaNeueRegular(size: 20)
+        temperatureLabel.textAlignment = .right
+    }
+    
+    private func setupWeatherStateImageView() {
         weatherStateImageView.contentMode = .scaleAspectFit
     }
     

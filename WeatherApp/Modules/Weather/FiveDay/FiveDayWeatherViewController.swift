@@ -33,7 +33,9 @@ class FiveDayWeatherViewController: UIViewController {
     private func setupTableView() {
         tableView.register(UINib(nibName: String(describing: OneDayWeatherTableViewCell.self), bundle: .main), forCellReuseIdentifier: String(describing: OneDayWeatherTableViewCell.self))
         tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
+        tableView.separatorInset = .zero
+        tableView.tableFooterView = UIView()
         tableView.rowHeight = 90
         tableView.sectionHeaderHeight = 80
         tableView.dataSource = self

@@ -16,7 +16,7 @@ class TitleLabelTableViewHeader: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.clipsToBounds = true
-        label.font = Font.helveticaNeueRegular(size: 30)
+        label.font = Font.helveticaNeueRegular(size: 28)
         return label
     }()
     
@@ -35,7 +35,7 @@ class TitleLabelTableViewHeader: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = .white
+        backgroundColor = Color.lightGray
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         setupConstraints()
@@ -46,8 +46,8 @@ class TitleLabelTableViewHeader: UIView {
     private func setupConstraints() {
         let multiplier: CGFloat = 1
         addConstraints([
-            NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: multiplier, constant: 18),
-            NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: multiplier, constant: 30),
+            NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: multiplier, constant: 25),
+            NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: multiplier, constant: 25),
             NSLayoutConstraint(item: titleLabel, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: multiplier, constant: 12),
             NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: titleLabel, attribute: .trailing, multiplier: multiplier, constant: 12)
             ])
