@@ -16,7 +16,7 @@ class TitleLabelTableViewHeader: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.clipsToBounds = true
-        label.font = Font.helveticaNeueRegular(size: 28)
+        label.font = Font.helveticaNeueRegular(size: 26)
         return label
     }()
     

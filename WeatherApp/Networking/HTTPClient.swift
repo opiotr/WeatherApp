@@ -24,7 +24,7 @@ final class HTTPClient {
     
     func request<Response: Codable>(_ endpoint: Endpoint<Response>, success: @escaping (Response) -> Void, failure: @escaping (Error) -> Void) {
         guard let url = createAbsoluteUrl(with: endpoint.path) else {
-            failure(NSError(domain: "Preparing request url error", code: -1, userInfo: nil))
+            failure(NSError(domain: "prepareRequestUrlError".localized, code: -1, userInfo: nil))
             return
         }
         let request = sessionManager.request(url,

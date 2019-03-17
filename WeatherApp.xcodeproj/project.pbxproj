@@ -97,7 +97,6 @@
 		AEE8EFA2223AC36F008BE6C6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AEE8EFA4223AC370008BE6C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEE8EFAC223AC3CA008BE6C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AEE8EFAD223AC3CA008BE6C6 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AFDA54C0993C04E2131F2448 /* Pods-WeatherAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -577,7 +576,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				AEE8EFAC223AC3CA008BE6C6 /* en */,
-				AEE8EFAD223AC3CA008BE6C6 /* pl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

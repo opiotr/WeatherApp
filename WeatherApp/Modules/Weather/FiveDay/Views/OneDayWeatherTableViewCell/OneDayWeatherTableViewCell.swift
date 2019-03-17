@@ -29,13 +29,13 @@ class OneDayWeatherTableViewCell: UITableViewCell {
     }
     
     private func setupDateLabel() {
-        dateLabel.font = Font.helveticaNeueRegular(size: 16)
+        dateLabel.font = Font.helveticaNeueRegular(size: 17)
         dateLabel.numberOfLines = 2
         dateLabel.lineBreakMode = .byWordWrapping
     }
     
     private func setupTemperatureLabel() {
-        temperatureLabel.font = Font.helveticaNeueRegular(size: 20)
+        temperatureLabel.font = Font.helveticaNeueRegular(size: 22)
         temperatureLabel.textAlignment = .right
     }
     

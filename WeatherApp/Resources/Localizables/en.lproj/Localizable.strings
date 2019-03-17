@@ -5,3 +5,13 @@
 */
 
 // Common
+
+"ok" = "Ok";
+
+// Weather
+
+"fiveDayWeatherTitle" = "FIVE DAY WEATHER";
+
+// Errors
+
+"prepareRequestUrlError" = "Preparing request url error";

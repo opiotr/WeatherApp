@@ -85,7 +85,7 @@ class WeatherPagerViewController: UIViewController {
     
     private func presentAlert(with message: String) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "ok".localized, style: .default, handler: nil))
         present(alertController, animated: true)
     }
 }

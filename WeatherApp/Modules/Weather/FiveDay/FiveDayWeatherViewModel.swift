@@ -34,13 +34,13 @@ class FiveDayWeatherViewModel {
     
     func buildSections() {
         let oneDayWeatherCellDataList = createOneDayWeatherCellDataList()
-        let fiveDayWeatherSection = OneDayWeatherSectionModel(title: "FIVE DAY WEATHER", cellDataList: oneDayWeatherCellDataList)
+        let fiveDayWeatherSection = OneDayWeatherSectionModel(title: "fiveDayWeatherTitle".localized, cellDataList: oneDayWeatherCellDataList)
         sections = [fiveDayWeatherSection]
     }
     
     private func createOneDayWeatherCellDataList() -> [OneDayWeatherCellData] {
         let cellDataList = weatherDataList.map { weatherDetails -> OneDayWeatherCellData in
-            let formattedTemperature = "\(weatherDetails.temperature)℃"
+            let formattedTemperature = "\(weatherDetails.temperature)\u{2103}"
             let weatherStateIconUrl = createWeatherStateUrl(for: weatherDetails.weatherStateAbbreviation)
             let cellData = OneDayWeatherCellData(applicableDate: weatherDetails.applicableDate, temperature: formattedTemperature, weatherStateIconUrl: weatherStateIconUrl)
             return cellData
