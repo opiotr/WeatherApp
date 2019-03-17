@@ -40,6 +40,7 @@ class OneDayWeatherTableViewCell: UITableViewCell {
     }
     
     private func setupWeatherStateImageView() {
+        weatherStateImageView.kf.indicatorType = .activity
         weatherStateImageView.contentMode = .scaleAspectFit
     }
     
