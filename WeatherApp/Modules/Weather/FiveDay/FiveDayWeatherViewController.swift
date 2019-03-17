@@ -37,7 +37,7 @@ class FiveDayWeatherViewController: UIViewController {
         tableView.separatorInset = .zero
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 90
-        tableView.sectionHeaderHeight = 80
+        tableView.sectionHeaderHeight = 70
         tableView.dataSource = self
         tableView.delegate = self
     }
