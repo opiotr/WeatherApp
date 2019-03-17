@@ -28,8 +28,8 @@ final class DependencyContainer {
         container.register(WeatherPagerViewModel.self) { resolver in
             WeatherPagerViewModel(dataFetcher: resolver.resolve(WeatherDataFetcher.self)!)
         }
-        container.register(DailyWeatherViewModel.self) { resolver, locationName, weatherDetails in
-            DailyWeatherViewModel(locationName: locationName, weatherDetails: weatherDetails)
+        container.register(DailyWeatherViewModel.self) { resolver, locationName, weatherDetails, refreshDataAction in
+            DailyWeatherViewModel(locationName: locationName, weatherDetails: weatherDetails, refreshDataAction: refreshDataAction)
         }
         container.register(FiveDayWeatherViewModel.self) { resolver, weatherDataList in
             FiveDayWeatherViewModel(weatherDataList: weatherDataList)

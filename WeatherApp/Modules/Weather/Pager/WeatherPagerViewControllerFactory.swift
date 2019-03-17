@@ -21,12 +21,12 @@ class WeatherPagerViewControllerFactory {
     
     // MARK: - Factory methods
     
-    func makeDailyWeatherViewController(for locationName: String, with data: WeatherDetailsDomain) -> UIViewController {
+    func makeDailyWeatherViewController(for locationName: String, with data: WeatherDetailsDomain, refreshDataAction: @escaping () -> Void) -> UIViewController {
         guard let controller = storyboard.instantiateViewController(withIdentifier: dailyWeatherViewControllerIdentifier) as? DailyWeatherViewController else {
             fatalError("Couldn't instantinate controller with identifier \(dailyWeatherViewControllerIdentifier)")
         }
         
-        controller.viewModel = DependencyContainer.container.resolve(DailyWeatherViewModel.self, arguments: locationName, data)
+        controller.viewModel = DependencyContainer.container.resolve(DailyWeatherViewModel.self, arguments: locationName, data, refreshDataAction)
         return controller
     }
     

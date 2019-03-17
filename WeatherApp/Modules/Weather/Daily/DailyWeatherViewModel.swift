@@ -14,11 +14,13 @@ class DailyWeatherViewModel {
     
     let locationName: String
     let weatherDetails: WeatherDetailsDomain
+    let onRefreshData: () -> Void
     
     // MARK: - Init
     
-    init(locationName: String, weatherDetails: WeatherDetailsDomain) {
-        self.locationName = locationName
+    init(locationName: String, weatherDetails: WeatherDetailsDomain, refreshDataAction: @escaping () -> Void) {
+        self.locationName = locationName.uppercased()
         self.weatherDetails = weatherDetails
+        self.onRefreshData = refreshDataAction
     }
 }

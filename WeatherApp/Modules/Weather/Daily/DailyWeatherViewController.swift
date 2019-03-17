@@ -10,6 +10,12 @@ import UIKit
 
 class DailyWeatherViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var locationNameLabel: UILabel!
+    @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Public properties
     
     var viewModel: DailyWeatherViewModel!
@@ -19,6 +25,34 @@ class DailyWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setupLocationNameLabel()
+        setupRefreshButton()
+        setupTableView()
+    }
+    
+    // MARK: - Setup
+    
+    private func setupLocationNameLabel() {
+        locationNameLabel.font = Font.helveticaNeueRegular(size: 26)
+        locationNameLabel.textAlignment = .center
+        locationNameLabel.text = viewModel.locationName
+    }
+    
+    private func setupRefreshButton() {
+        refreshButton.imageView?.contentMode = .scaleAspectFit
+        refreshButton.setImage(Assets.refreshImage, for: .normal)
+        refreshButton.addTarget(self, action: #selector(refreshButtonTapped), for: .touchUpInside)
+    }
+    
+    private func setupTableView() {
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func refreshButtonTapped() {
+        viewModel.onRefreshData()
     }
 }
