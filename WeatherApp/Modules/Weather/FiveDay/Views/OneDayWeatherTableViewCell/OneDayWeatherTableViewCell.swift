@@ -22,6 +22,10 @@ class OneDayWeatherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        selectionStyle = .none
+        dateLabel.font = Font.helveticaNeueRegular(size: 16)
+        temperatureLabel.font = Font.helveticaNeueRegular(size: 20)
+        weatherStateImageView.contentMode = .scaleAspectFit
     }
     
     func setup(with data: OneDayWeatherCellData) {

@@ -35,6 +35,7 @@ class FiveDayWeatherViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.rowHeight = 90
+        tableView.sectionHeaderHeight = 80
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -64,5 +65,12 @@ extension FiveDayWeatherViewController: UITableViewDelegate, UITableViewDataSour
         let data = viewModel.sections[indexPath.section].cellDataList[indexPath.row]
         cell.setup(with: data)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = TitleLabelTableViewHeader()
+        let title = viewModel.sections[section].title
+        view.setupTitleLabel(withTitle: title)
+        return view
     }
 }
