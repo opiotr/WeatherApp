@@ -20,6 +20,14 @@ class WeatherPagerViewController: UIViewController {
     private var pageViewController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
     
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        activityIndicator.color = .gray
+        activityIndicator.frame = view.bounds
+        view.addSubview(activityIndicator)
+        return activityIndicator
+    }()
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -27,6 +35,7 @@ class WeatherPagerViewController: UIViewController {
     
         setupPageControl()
         bindViewToViewModel()
+        activityIndicator.startAnimating()
         viewModel.loadData()
     }
     
@@ -43,11 +52,13 @@ class WeatherPagerViewController: UIViewController {
     
     private func bindViewToViewModel() {
         viewModel.onLoadDataSuccess = { [weak self] data in
+            self?.activityIndicator.stopAnimating()
             self?.setupPagerViewControllers(with: data)
             self?.setFirstPage()
         }
         
         viewModel.onLoadDataError = { [weak self] error in
+            self?.activityIndicator.stopAnimating()
             self?.presentAlert(with: error.localizedDescription)
         }
     }
