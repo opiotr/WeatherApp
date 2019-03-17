@@ -10,4 +10,5 @@ import Foundation
 
 struct Config {
     static let baseApiUrl: String = "https://www.metaweather.com/api/location"
+    static let imageResourcePath: String = "https://www.metaweather.com/static/img/weather/png/%@.png"
 }

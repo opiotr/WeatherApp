@@ -18,6 +18,9 @@
 		AE0C2084223C46170073D0A8 /* LocalWeatherDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C2083223C46170073D0A8 /* LocalWeatherDomain.swift */; };
 		AE0C2086223C46260073D0A8 /* WeatherDetailsDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C2085223C46260073D0A8 /* WeatherDetailsDomain.swift */; };
 		AE0C2089223C4EF70073D0A8 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C2088223C4EF70073D0A8 /* Double+Extension.swift */; };
+		AE0E2077223E42C900B88F81 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E2076223E42C900B88F81 /* Color.swift */; };
+		AE4F44B8223E12EA004D12C5 /* TitleLabelTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F44B7223E12EA004D12C5 /* TitleLabelTableViewHeader.swift */; };
+		AE4F44BA223E13A9004D12C5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F44B9223E13A9004D12C5 /* Font.swift */; };
 		AE5E99AA223CE10100DCDBD4 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5E99A9223CE10100DCDBD4 /* Date+Extension.swift */; };
 		AE5E99AC223CE15D00DCDBD4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5E99AB223CE15D00DCDBD4 /* String+Extension.swift */; };
 		AE89E0CB223D1BF800731321 /* WeatherPagerViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89E0CA223D1BF800731321 /* WeatherPagerViewControllerFactory.swift */; };
@@ -28,6 +31,10 @@
 		AE9F0739223D108200D302F8 /* FiveDayWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F0738223D108200D302F8 /* FiveDayWeatherViewController.swift */; };
 		AE9F073D223D115900D302F8 /* WeatherPagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F073B223D115900D302F8 /* WeatherPagerViewModel.swift */; };
 		AE9F073E223D115900D302F8 /* WeatherPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F073C223D115900D302F8 /* WeatherPagerViewController.swift */; };
+		AEA184E3223D92C400EAC637 /* OneDayWeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA184E0223D92C400EAC637 /* OneDayWeatherTableViewCell.xib */; };
+		AEA184E4223D92C400EAC637 /* OneDayWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA184E1223D92C400EAC637 /* OneDayWeatherTableViewCell.swift */; };
+		AEA184E5223D92C400EAC637 /* OneDayWeatherCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA184E2223D92C400EAC637 /* OneDayWeatherCellData.swift */; };
+		AEA184E7223D92E000EAC637 /* OneDayWeatherSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA184E6223D92E000EAC637 /* OneDayWeatherSectionModel.swift */; };
 		AEE8EF79223AC1AF008BE6C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8EF78223AC1AF008BE6C6 /* AppDelegate.swift */; };
 		AEE8EF8E223AC1B0008BE6C6 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8EF8D223AC1B0008BE6C6 /* WeatherAppTests.swift */; };
 		AEE8EFA5223AC370008BE6C6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8EF9B223AC36F008BE6C6 /* Config.swift */; };
@@ -62,6 +69,9 @@
 		AE0C2083223C46170073D0A8 /* LocalWeatherDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWeatherDomain.swift; sourceTree = "<group>"; };
 		AE0C2085223C46260073D0A8 /* WeatherDetailsDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsDomain.swift; sourceTree = "<group>"; };
 		AE0C2088223C4EF70073D0A8 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		AE0E2076223E42C900B88F81 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		AE4F44B7223E12EA004D12C5 /* TitleLabelTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelTableViewHeader.swift; sourceTree = "<group>"; };
+		AE4F44B9223E13A9004D12C5 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		AE5E99A9223CE10100DCDBD4 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		AE5E99AB223CE15D00DCDBD4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AE89E0CA223D1BF800731321 /* WeatherPagerViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPagerViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -72,6 +82,10 @@
 		AE9F0738223D108200D302F8 /* FiveDayWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayWeatherViewController.swift; sourceTree = "<group>"; };
 		AE9F073B223D115900D302F8 /* WeatherPagerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherPagerViewModel.swift; sourceTree = "<group>"; };
 		AE9F073C223D115900D302F8 /* WeatherPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherPagerViewController.swift; sourceTree = "<group>"; };
+		AEA184E0223D92C400EAC637 /* OneDayWeatherTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneDayWeatherTableViewCell.xib; sourceTree = "<group>"; };
+		AEA184E1223D92C400EAC637 /* OneDayWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneDayWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		AEA184E2223D92C400EAC637 /* OneDayWeatherCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneDayWeatherCellData.swift; sourceTree = "<group>"; };
+		AEA184E6223D92E000EAC637 /* OneDayWeatherSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayWeatherSectionModel.swift; sourceTree = "<group>"; };
 		AEE8EF75223AC1AF008BE6C6 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE8EF78223AC1AF008BE6C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE8EF89223AC1B0008BE6C6 /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +178,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		AE4F44B5223E1281004D12C5 /* TitleLabelTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				AE4F44B7223E12EA004D12C5 /* TitleLabelTableViewHeader.swift */,
+			);
+			path = TitleLabelTableViewHeader;
+			sourceTree = "<group>";
+		};
+		AE4F44B6223E12A3004D12C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AEA184E6223D92E000EAC637 /* OneDayWeatherSectionModel.swift */,
+				AEA184E2223D92C400EAC637 /* OneDayWeatherCellData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AE9CAAAA223ACBD200AB66F8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +217,8 @@
 		AE9F0735223D103C00D302F8 /* FiveDay */ = {
 			isa = PBXGroup;
 			children = (
+				AE4F44B6223E12A3004D12C5 /* Models */,
+				AEA184D6223D7A3A00EAC637 /* Views */,
 				AE9F0738223D108200D302F8 /* FiveDayWeatherViewController.swift */,
 				AE89E0CC223D467300731321 /* FiveDayWeatherViewModel.swift */,
 			);
@@ -200,6 +233,24 @@
 				AE89E0CA223D1BF800731321 /* WeatherPagerViewControllerFactory.swift */,
 			);
 			path = Pager;
+			sourceTree = "<group>";
+		};
+		AEA184D6223D7A3A00EAC637 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE4F44B5223E1281004D12C5 /* TitleLabelTableViewHeader */,
+				AEA184DF223D92C400EAC637 /* OneDayWeatherTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AEA184DF223D92C400EAC637 /* OneDayWeatherTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEA184E0223D92C400EAC637 /* OneDayWeatherTableViewCell.xib */,
+				AEA184E1223D92C400EAC637 /* OneDayWeatherTableViewCell.swift */,
+			);
+			path = OneDayWeatherTableViewCell;
 			sourceTree = "<group>";
 		};
 		AEE8EF6C223AC1AF008BE6C6 = {
@@ -280,6 +331,8 @@
 				AEE8EFA1223AC36F008BE6C6 /* LaunchScreen.storyboard */,
 				AEE8EFA2223AC36F008BE6C6 /* Main.storyboard */,
 				AE0C207B223C3F1B0073D0A8 /* DependencyContainer.swift */,
+				AE4F44B9223E13A9004D12C5 /* Font.swift */,
+				AE0E2076223E42C900B88F81 /* Color.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -390,6 +443,7 @@
 				AEE8EFA8223AC370008BE6C6 /* Main.storyboard in Resources */,
 				AEE8EFA9223AC370008BE6C6 /* Assets.xcassets in Resources */,
 				AEE8EFA7223AC370008BE6C6 /* LaunchScreen.storyboard in Resources */,
+				AEA184E3223D92C400EAC637 /* OneDayWeatherTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,10 +465,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -472,14 +532,20 @@
 				AE89E0CD223D467300731321 /* FiveDayWeatherViewModel.swift in Sources */,
 				AE0C2089223C4EF70073D0A8 /* Double+Extension.swift in Sources */,
 				AE0C2074223C00040073D0A8 /* Endpoint.swift in Sources */,
+				AEA184E4223D92C400EAC637 /* OneDayWeatherTableViewCell.swift in Sources */,
 				AE0C2086223C46260073D0A8 /* WeatherDetailsDomain.swift in Sources */,
 				AE5E99AA223CE10100DCDBD4 /* Date+Extension.swift in Sources */,
+				AEA184E7223D92E000EAC637 /* OneDayWeatherSectionModel.swift in Sources */,
 				AE0C2072223BFF290073D0A8 /* HTTPClient.swift in Sources */,
+				AEA184E5223D92C400EAC637 /* OneDayWeatherCellData.swift in Sources */,
 				AE0C2082223C45D50073D0A8 /* LocalWeatherRemote.swift in Sources */,
 				AE0C207C223C3F1B0073D0A8 /* DependencyContainer.swift in Sources */,
 				AE9F0739223D108200D302F8 /* FiveDayWeatherViewController.swift in Sources */,
+				AE0E2077223E42C900B88F81 /* Color.swift in Sources */,
 				AE9CAAB0223AD23900AB66F8 /* WeatherState.swift in Sources */,
+				AE4F44B8223E12EA004D12C5 /* TitleLabelTableViewHeader.swift in Sources */,
 				AE9F073E223D115900D302F8 /* WeatherPagerViewController.swift in Sources */,
+				AE4F44BA223E13A9004D12C5 /* Font.swift in Sources */,
 				AE9F0737223D104D00D302F8 /* DailyWeatherViewController.swift in Sources */,
 				AE9F073D223D115900D302F8 /* WeatherPagerViewModel.swift in Sources */,
 				AEE8EF79223AC1AF008BE6C6 /* AppDelegate.swift in Sources */,
@@ -637,7 +703,7 @@
 		};
 		AEE8EF93223AC1B0008BE6C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16AEF2636FD8E535D31DD9BF /* Pods-WeatherApp.release.xcconfig */;
+			baseConfigurationReference = 2A09B0D5A5B940D805927CBD /* Pods-WeatherApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -656,7 +722,7 @@
 		};
 		AEE8EF94223AC1B0008BE6C6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A09B0D5A5B940D805927CBD /* Pods-WeatherApp.debug.xcconfig */;
+			baseConfigurationReference = 16AEF2636FD8E535D31DD9BF /* Pods-WeatherApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

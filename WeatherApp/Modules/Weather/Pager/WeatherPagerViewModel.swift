@@ -59,9 +59,8 @@ class WeatherPagerViewModel {
     
     private func createWeatherDetailsDomain(from remoteObject: WeatherDetailsRemote) -> WeatherDetailsDomain {
         let formattedApplicableDate = remoteObject.applicableDate
-            .toDate(withFormat: "yyyy-mm-dd")?
-            .toString(withFormat: "dd.mm") ?? ""
-        
+            .toDate(withFormat: "yyyy-MM-dd")?
+            .toString(withFormat: "EEEE\nMMM d") ?? ""
         return WeatherDetailsDomain(weatherStateName: remoteObject.weatherStateName,
                                     weatherStateAbbreviation: remoteObject.weatherStateAbbr,
                                     applicableDate: formattedApplicableDate,
