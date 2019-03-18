@@ -13,8 +13,11 @@ class DailyWeatherViewModel {
     // MARK: - Public properties
     
     let locationName: String
-    let weatherDetails: WeatherDetailsDomain
     let onRefreshData: () -> Void
+
+    // MARK: - Private properties
+    
+    private let weatherDetails: WeatherDetailsDomain
     
     // MARK: - Init
     

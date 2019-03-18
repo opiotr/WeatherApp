@@ -12,7 +12,7 @@ class FiveDayWeatherViewModel {
     
     // MARK: - Public properties
     
-    var sections: [OneDayWeatherSectionModel] = [] {
+    var sections: [SectionModel] = [] {
         didSet {
             onSectionsChange?()
         }
@@ -33,19 +33,27 @@ class FiveDayWeatherViewModel {
     // MARK: - Section building
     
     func buildSections() {
-        let oneDayWeatherCellDataList = createOneDayWeatherCellDataList()
-        let fiveDayWeatherSection = OneDayWeatherSectionModel(title: "fiveDayWeatherTitle".localized, cellDataList: oneDayWeatherCellDataList)
+        let cellItems = createOneDayWeatherCellItems()
+        let fiveDayWeatherSection = SectionModel(title: "fiveDayWeatherTitle".localized, cellItems: cellItems)
         sections = [fiveDayWeatherSection]
     }
     
-    private func createOneDayWeatherCellDataList() -> [OneDayWeatherCellData] {
-        let cellDataList = weatherDataList.map { weatherDetails -> OneDayWeatherCellData in
-            let formattedTemperature = "\(weatherDetails.temperature)\u{2103}"
-            let weatherStateIconUrl = createWeatherStateUrl(for: weatherDetails.weatherStateAbbreviation)
-            let cellData = OneDayWeatherCellData(applicableDate: weatherDetails.applicableDate, temperature: formattedTemperature, weatherStateIconUrl: weatherStateIconUrl)
-            return cellData
+    private func createOneDayWeatherCellItems() -> [CellItem] {
+        let cellDataList = weatherDataList.map {
+            createOneDayWeatherCellData(with: $0)
         }
-        return cellDataList
+        let cellItems = cellDataList.map {
+            CellItem(identifier: OneDayWeatherTableViewCell.identifier, data: $0)
+        }
+        
+        return cellItems
+    }
+    
+    private func createOneDayWeatherCellData(with weatherDetails: WeatherDetailsDomain) -> OneDayWeatherCellData {
+        let formattedTemperature = "\(weatherDetails.temperature)\u{2103}"
+        let weatherStateIconUrl = createWeatherStateUrl(for: weatherDetails.weatherStateAbbreviation)
+        let cellData = OneDayWeatherCellData(applicableDate: weatherDetails.applicableDate, temperature: formattedTemperature, weatherStateIconUrl: weatherStateIconUrl)
+        return cellData
     }
     
     // MARK: - Data formating

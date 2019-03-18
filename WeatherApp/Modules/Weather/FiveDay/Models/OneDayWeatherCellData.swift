@@ -8,8 +8,14 @@
 
 import Foundation
 
-struct OneDayWeatherCellData {
+class OneDayWeatherCellData: CellData {
     let applicableDate: String
     let temperature: String
     let weatherStateIconUrl: URL?
+    
+    init(applicableDate: String, temperature: String, weatherStateIconUrl: URL?) {
+        self.applicableDate = applicableDate
+        self.temperature = temperature
+        self.weatherStateIconUrl = weatherStateIconUrl
+    }
 }

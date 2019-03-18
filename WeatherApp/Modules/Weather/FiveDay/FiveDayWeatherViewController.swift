@@ -57,15 +57,15 @@ extension FiveDayWeatherViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.sections[section].cellDataList.count
+        return viewModel.sections[section].cellItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: OneDayWeatherTableViewCell.self)) as? OneDayWeatherTableViewCell else {
+        let cellItem = viewModel.sections[indexPath.section].cellItems[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellItem.identifier) as? BaseTableViewCell else {
             return UITableViewCell()
         }
-        let data = viewModel.sections[indexPath.section].cellDataList[indexPath.row]
-        cell.setup(with: data)
+        cell.setup(cellItem)
         return cell
     }
     
