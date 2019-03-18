@@ -46,9 +46,44 @@
                     <view key="view" contentMode="scaleToFill" id="tAd-53-KcI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJs-TX-pcn">
+                                <rect key="frame" x="42" y="50" width="291" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeq-68-vbB">
+                                <rect key="frame" x="338" y="50" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="EVB-gb-R03"/>
+                                    <constraint firstAttribute="height" constant="25" id="EiU-hh-Pvp"/>
+                                </constraints>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hcK-dg-m3S">
+                                <rect key="frame" x="0.0" y="101" width="375" height="566"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xtW-el-e8Q" firstAttribute="trailing" secondItem="yeq-68-vbB" secondAttribute="trailing" constant="12" id="39U-5D-PU0"/>
+                            <constraint firstItem="xtW-el-e8Q" firstAttribute="bottom" secondItem="hcK-dg-m3S" secondAttribute="bottom" id="3eh-cD-vBO"/>
+                            <constraint firstItem="hcK-dg-m3S" firstAttribute="leading" secondItem="xtW-el-e8Q" secondAttribute="leading" id="7Rr-f3-ssi"/>
+                            <constraint firstItem="kJs-TX-pcn" firstAttribute="centerX" secondItem="tAd-53-KcI" secondAttribute="centerX" id="9bK-g3-1Zo"/>
+                            <constraint firstItem="hcK-dg-m3S" firstAttribute="top" secondItem="kJs-TX-pcn" secondAttribute="bottom" constant="30" id="Dec-av-hDY"/>
+                            <constraint firstItem="kJs-TX-pcn" firstAttribute="top" secondItem="xtW-el-e8Q" secondAttribute="top" constant="30" id="JBA-KU-1jZ"/>
+                            <constraint firstItem="xtW-el-e8Q" firstAttribute="trailing" secondItem="hcK-dg-m3S" secondAttribute="trailing" id="K74-37-aDk"/>
+                            <constraint firstItem="yeq-68-vbB" firstAttribute="leading" secondItem="kJs-TX-pcn" secondAttribute="trailing" constant="5" id="bRP-d1-l16"/>
+                            <constraint firstItem="yeq-68-vbB" firstAttribute="top" secondItem="kJs-TX-pcn" secondAttribute="top" id="bnl-MF-axo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xtW-el-e8Q"/>
                     </view>
+                    <connections>
+                        <outlet property="locationNameLabel" destination="kJs-TX-pcn" id="8eb-8x-ZC4"/>
+                        <outlet property="refreshButton" destination="yeq-68-vbB" id="fJP-sN-8UM"/>
+                        <outlet property="tableView" destination="hcK-dg-m3S" id="0sr-We-zXY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXX-7k-qOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

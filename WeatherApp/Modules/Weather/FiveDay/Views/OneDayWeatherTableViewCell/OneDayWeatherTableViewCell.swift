@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class OneDayWeatherTableViewCell: UITableViewCell {
+class OneDayWeatherTableViewCell: BaseTableViewCell {
     
     // MARK: - IBOutlets
     
@@ -22,7 +22,6 @@ class OneDayWeatherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        selectionStyle = .none
         setupDateLabel()
         setupTemperatureLabel()
         setupWeatherStateImageView()
@@ -44,7 +43,11 @@ class OneDayWeatherTableViewCell: UITableViewCell {
         weatherStateImageView.contentMode = .scaleAspectFit
     }
     
-    func setup(with data: OneDayWeatherCellData) {
+    override func setup(_ item: CellItem) {
+        super.setup(item)
+        
+        guard let data = item.data as? OneDayWeatherCellData else { return }
+        
         dateLabel.text = data.applicableDate
         weatherStateImageView.kf.setImage(with: data.weatherStateIconUrl)
         temperatureLabel.text = data.temperature

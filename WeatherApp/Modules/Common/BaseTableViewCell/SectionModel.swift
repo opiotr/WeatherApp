@@ -1,5 +1,5 @@
 //
-//  OneDayWeatherSectionModel.swift
+//  SectionModel.swift
 //  WeatherApp
 //
 //  Created by Piotr Olech on 16/03/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OneDayWeatherSectionModel {
+struct SectionModel {
     let title: String
-    let cellDataList: [OneDayWeatherCellData]
+    let cellItems: [CellItem]
 }
