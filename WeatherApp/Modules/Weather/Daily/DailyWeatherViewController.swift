@@ -28,6 +28,8 @@ class DailyWeatherViewController: UIViewController {
         setupLocationNameLabel()
         setupRefreshButton()
         setupTableView()
+        bindViewToViewModel()
+        viewModel.buildSections()
     }
     
     // MARK: - Setup
@@ -53,6 +55,12 @@ class DailyWeatherViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    private func bindViewToViewModel() {
+        viewModel.onSectionsChange = { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
     // MARK: - Actions
     
     @objc private func refreshButtonTapped() {
@@ -64,15 +72,15 @@ class DailyWeatherViewController: UIViewController {
 
 extension DailyWeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.sections[section].cellItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellItem = CellItem(identifier: DailyWeatherMainTableViewCell.identifier, data: CellData())
+        let cellItem = viewModel.sections[indexPath.section].cellItems[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellItem.identifier) as? BaseTableViewCell else {
             return UITableViewCell()
         }

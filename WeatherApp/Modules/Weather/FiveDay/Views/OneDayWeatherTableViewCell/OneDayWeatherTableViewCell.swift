@@ -22,7 +22,6 @@ class OneDayWeatherTableViewCell: BaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        selectionStyle = .none
         setupDateLabel()
         setupTemperatureLabel()
         setupWeatherStateImageView()

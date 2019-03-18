@@ -12,16 +12,15 @@ class FiveDayWeatherViewModel {
     
     // MARK: - Public properties
     
-    var sections: [SectionModel] = [] {
-        didSet {
-            onSectionsChange?()
-        }
-    }
-    
     var onSectionsChange: (() -> Void)?
     
     // MARK: - Private properties
     
+    private(set) var sections: [SectionModel] = [] {
+        didSet {
+            onSectionsChange?()
+        }
+    }
     private let weatherDataList: [WeatherDetailsDomain]
     
     // MARK: - Init
@@ -50,7 +49,7 @@ class FiveDayWeatherViewModel {
     }
     
     private func createOneDayWeatherCellData(with weatherDetails: WeatherDetailsDomain) -> OneDayWeatherCellData {
-        let formattedTemperature = "\(weatherDetails.temperature)\u{2103}"
+        let formattedTemperature = weatherDetails.temperature.formatToCelsiusTemperatureString()
         let weatherStateIconUrl = createWeatherStateUrl(for: weatherDetails.weatherStateAbbreviation)
         let cellData = OneDayWeatherCellData(applicableDate: weatherDetails.applicableDate, temperature: formattedTemperature, weatherStateIconUrl: weatherStateIconUrl)
         return cellData
