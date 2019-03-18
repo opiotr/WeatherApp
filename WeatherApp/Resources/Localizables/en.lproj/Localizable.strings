@@ -11,6 +11,12 @@
 // Weather
 
 "fiveDayWeatherTitle" = "FIVE DAY WEATHER";
+"weatherHumidity" = "Humidity: %d%%";
+"weatherMinTemp" = "Min temp: %@";
+"weatherMaxTemp" = "Max temp: %@";
+"weatherWindSpeed" = "Wind speed: %d mph";
+"weatherAirPressure" = "Air pressure: %d hPa";
+
 
 // Errors
 

@@ -37,7 +37,7 @@ class DailyWeatherMainTableViewCell: BaseTableViewCell {
     }
     
     private func setupWeatherStateLabel() {
-        weatherStateLabel.font = Font.helveticaNeueRegular(size: 18)
+        weatherStateLabel.font = Font.helveticaNeueRegular(size: 17)
         weatherStateLabel.textAlignment = .center
     }
     
