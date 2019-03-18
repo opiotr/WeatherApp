@@ -20,3 +20,4 @@
 // Errors
 
 "prepareRequestUrlError" = "Preparing request url error";
+"insufficientDataError" = "Insufficient data to present weather, try again.";

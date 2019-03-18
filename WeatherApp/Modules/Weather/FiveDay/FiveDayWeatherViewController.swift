@@ -23,7 +23,7 @@ class FiveDayWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindViewToViewModel()
+        setupBindings()
         setupTableView()
         viewModel.buildSections()
     }
@@ -44,7 +44,7 @@ class FiveDayWeatherViewController: UIViewController {
     
     // MARK: - Data binding
     
-    private func bindViewToViewModel() {
+    private func setupBindings() {
         viewModel.onSectionsChange = { [weak self] in
             self?.tableView.reloadData()
         }

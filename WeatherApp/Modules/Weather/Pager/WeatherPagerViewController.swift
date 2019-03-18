@@ -33,7 +33,7 @@ class WeatherPagerViewController: UIViewController {
         super.viewDidLoad()
     
         setupPageControl()
-        bindViewToViewModel()
+        setupBindings()
         activityIndicator.startAnimating()
         viewModel.loadData()
     }
@@ -49,7 +49,7 @@ class WeatherPagerViewController: UIViewController {
     
     // MARK: - Data binding
     
-    private func bindViewToViewModel() {
+    private func setupBindings() {
         viewModel.onLoadDataSuccess = { [weak self] data in
             self?.activityIndicator.stopAnimating()
             self?.setupPagerViewControllers(with: data)

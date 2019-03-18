@@ -28,7 +28,7 @@ class DailyWeatherViewController: UIViewController {
         setupLocationNameLabel()
         setupRefreshButton()
         setupTableView()
-        bindViewToViewModel()
+        setupBindings()
         viewModel.buildSections()
     }
     
@@ -58,7 +58,7 @@ class DailyWeatherViewController: UIViewController {
     
     // MARK: - Data binding
     
-    private func bindViewToViewModel() {
+    private func setupBindings() {
         viewModel.onSectionsChange = { [weak self] in
             self?.tableView.reloadData()
         }
