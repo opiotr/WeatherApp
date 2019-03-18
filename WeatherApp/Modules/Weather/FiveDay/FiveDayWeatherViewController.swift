@@ -31,7 +31,7 @@ class FiveDayWeatherViewController: UIViewController {
     // MARK: - Setup
     
     private func setupTableView() {
-        tableView.register(UINib(nibName: String(describing: OneDayWeatherTableViewCell.self), bundle: .main), forCellReuseIdentifier: String(describing: OneDayWeatherTableViewCell.self))
+        tableView.register(UINib(nibName: OneDayWeatherTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: OneDayWeatherTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = .zero
@@ -41,6 +41,8 @@ class FiveDayWeatherViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
+    // MARK: - Data binding
     
     private func bindViewToViewModel() {
         viewModel.onSectionsChange = { [weak self] in
@@ -65,6 +67,7 @@ extension FiveDayWeatherViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellItem.identifier) as? BaseTableViewCell else {
             return UITableViewCell()
         }
+        
         cell.setup(cellItem)
         return cell
     }

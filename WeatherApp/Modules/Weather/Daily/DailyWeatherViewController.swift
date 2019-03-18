@@ -56,6 +56,8 @@ class DailyWeatherViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    // MARK: - Data binding
+    
     private func bindViewToViewModel() {
         viewModel.onSectionsChange = { [weak self] in
             self?.tableView.reloadData()
@@ -85,6 +87,7 @@ extension DailyWeatherViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellItem.identifier) as? BaseTableViewCell else {
             return UITableViewCell()
         }
+        
         cell.setup(cellItem)
         return cell
     }

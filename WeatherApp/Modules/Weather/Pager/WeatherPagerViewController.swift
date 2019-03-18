@@ -19,7 +19,6 @@ class WeatherPagerViewController: UIViewController {
     
     private var pageViewController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
-    
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.color = .gray
@@ -72,17 +71,6 @@ class WeatherPagerViewController: UIViewController {
         }
     }
     
-    private func setupPagerViewControllers(with data: LocalWeatherDomain) {
-        let dailyWeatherController = controllerFactory.makeDailyWeatherViewController(for: data.locationName, with: data.currentDayWeather, refreshDataAction: refreshData)
-        let fiveDayWeatherController = controllerFactory.makeFiveDayWeatherViewController(with: data.fiveDayWeather)
-        viewControllers = [dailyWeatherController, fiveDayWeatherController]
-    }
-    
-    private func setFirstPage() {
-        guard let controller = viewControllers.first else { return }
-        pageViewController.setViewControllers([controller], direction: .forward, animated: false, completion: nil)
-    }
-    
     private func presentAlert(with message: String) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "ok".localized, style: .default, handler: nil))
@@ -92,6 +80,19 @@ class WeatherPagerViewController: UIViewController {
     private func refreshData() {
         activityIndicator.startAnimating()
         viewModel.loadData()
+    }
+    
+    // MARK: - Pager setup
+    
+    private func setupPagerViewControllers(with data: LocalWeatherDomain) {
+        let dailyWeatherController = controllerFactory.makeDailyWeatherViewController(for: data.locationName, with: data.currentDayWeather, refreshDataAction: refreshData)
+        let fiveDayWeatherController = controllerFactory.makeFiveDayWeatherViewController(with: data.fiveDayWeather)
+        viewControllers = [dailyWeatherController, fiveDayWeatherController]
+    }
+    
+    private func setFirstPage() {
+        guard let controller = viewControllers.first else { return }
+        pageViewController.setViewControllers([controller], direction: .forward, animated: false, completion: nil)
     }
 }
 
