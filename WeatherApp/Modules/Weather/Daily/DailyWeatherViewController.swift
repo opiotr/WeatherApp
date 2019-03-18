@@ -45,14 +45,38 @@ class DailyWeatherViewController: UIViewController {
     }
     
     private func setupTableView() {
+        tableView.register(UINib(nibName: DailyWeatherMainTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: DailyWeatherMainTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     // MARK: - Actions
     
     @objc private func refreshButtonTapped() {
         viewModel.onRefreshData()
+    }
+}
+
+// MARK: - UITableViewDelegate & UITableViewDataSource
+
+extension DailyWeatherViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellItem = CellItem(identifier: DailyWeatherMainTableViewCell.identifier, data: CellData())
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellItem.identifier) as? BaseTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.setup(cellItem)
+        return cell
     }
 }

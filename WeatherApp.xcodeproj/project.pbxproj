@@ -36,6 +36,11 @@
 		AEA184E5223D92C400EAC637 /* OneDayWeatherCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA184E2223D92C400EAC637 /* OneDayWeatherCellData.swift */; };
 		AEA184E7223D92E000EAC637 /* OneDayWeatherSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA184E6223D92E000EAC637 /* OneDayWeatherSectionModel.swift */; };
 		AEA5DAD2223EC0650069523B /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5DAD1223EC0650069523B /* Assets.swift */; };
+		AEA5DAD7223F83AB0069523B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5DAD6223F83AB0069523B /* BaseTableViewCell.swift */; };
+		AEA5DAD9223F845A0069523B /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5DAD8223F845A0069523B /* CellData.swift */; };
+		AEA960F5223F87D30001B958 /* DailyWeatherMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA960F3223F87D30001B958 /* DailyWeatherMainTableViewCell.swift */; };
+		AEA960F6223F87D30001B958 /* DailyWeatherMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA960F4223F87D30001B958 /* DailyWeatherMainTableViewCell.xib */; };
+		AEA960F8223F88840001B958 /* CellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA960F7223F88840001B958 /* CellItem.swift */; };
 		AEE8EF79223AC1AF008BE6C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8EF78223AC1AF008BE6C6 /* AppDelegate.swift */; };
 		AEE8EF8E223AC1B0008BE6C6 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8EF8D223AC1B0008BE6C6 /* WeatherAppTests.swift */; };
 		AEE8EFA5223AC370008BE6C6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE8EF9B223AC36F008BE6C6 /* Config.swift */; };
@@ -88,6 +93,11 @@
 		AEA184E2223D92C400EAC637 /* OneDayWeatherCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneDayWeatherCellData.swift; sourceTree = "<group>"; };
 		AEA184E6223D92E000EAC637 /* OneDayWeatherSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayWeatherSectionModel.swift; sourceTree = "<group>"; };
 		AEA5DAD1223EC0650069523B /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		AEA5DAD6223F83AB0069523B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		AEA5DAD8223F845A0069523B /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		AEA960F3223F87D30001B958 /* DailyWeatherMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherMainTableViewCell.swift; sourceTree = "<group>"; };
+		AEA960F4223F87D30001B958 /* DailyWeatherMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyWeatherMainTableViewCell.xib; sourceTree = "<group>"; };
+		AEA960F7223F88840001B958 /* CellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItem.swift; sourceTree = "<group>"; };
 		AEE8EF75223AC1AF008BE6C6 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE8EF78223AC1AF008BE6C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE8EF89223AC1B0008BE6C6 /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +219,7 @@
 		AE9F0734223D103C00D302F8 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				AEA960F1223F87BC0001B958 /* Views */,
 				AE9F0736223D104D00D302F8 /* DailyWeatherViewController.swift */,
 				AE89E0CE223D478600731321 /* DailyWeatherViewModel.swift */,
 			);
@@ -252,6 +263,51 @@
 				AEA184E1223D92C400EAC637 /* OneDayWeatherTableViewCell.swift */,
 			);
 			path = OneDayWeatherTableViewCell;
+			sourceTree = "<group>";
+		};
+		AEA5DAD3223F838A0069523B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AEE8EFA1223AC36F008BE6C6 /* LaunchScreen.storyboard */,
+				AEE8EFA2223AC36F008BE6C6 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AEA5DAD4223F838A0069523B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AE0C207B223C3F1B0073D0A8 /* DependencyContainer.swift */,
+				AEA5DAD5223F838A0069523B /* BaseTableViewCell */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AEA5DAD5223F838A0069523B /* BaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEA5DAD6223F83AB0069523B /* BaseTableViewCell.swift */,
+				AEA5DAD8223F845A0069523B /* CellData.swift */,
+				AEA960F7223F88840001B958 /* CellItem.swift */,
+			);
+			path = BaseTableViewCell;
+			sourceTree = "<group>";
+		};
+		AEA960F1223F87BC0001B958 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AEA960F2223F87BC0001B958 /* DailyWeatherMainTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AEA960F2223F87BC0001B958 /* DailyWeatherMainTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEA960F3223F87D30001B958 /* DailyWeatherMainTableViewCell.swift */,
+				AEA960F4223F87D30001B958 /* DailyWeatherMainTableViewCell.xib */,
+			);
+			path = DailyWeatherMainTableViewCell;
 			sourceTree = "<group>";
 		};
 		AEE8EF6C223AC1AF008BE6C6 = {
@@ -309,6 +365,8 @@
 		AEE8EF9D223AC36F008BE6C6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AEA5DAD4223F838A0069523B /* Common */,
+				AEA5DAD3223F838A0069523B /* Main */,
 				AEE8EF9E223AC36F008BE6C6 /* Weather */,
 			);
 			path = Modules;
@@ -329,9 +387,6 @@
 		AEE8EFA0223AC36F008BE6C6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				AEE8EFA1223AC36F008BE6C6 /* LaunchScreen.storyboard */,
-				AEE8EFA2223AC36F008BE6C6 /* Main.storyboard */,
-				AE0C207B223C3F1B0073D0A8 /* DependencyContainer.swift */,
 				AE4F44B9223E13A9004D12C5 /* Font.swift */,
 				AE0E2076223E42C900B88F81 /* Color.swift */,
 				AEA5DAD1223EC0650069523B /* Assets.swift */,
@@ -446,6 +501,7 @@
 				AEE8EFA9223AC370008BE6C6 /* Assets.xcassets in Resources */,
 				AEE8EFA7223AC370008BE6C6 /* LaunchScreen.storyboard in Resources */,
 				AEA184E3223D92C400EAC637 /* OneDayWeatherTableViewCell.xib in Resources */,
+				AEA960F6223F87D30001B958 /* DailyWeatherMainTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,11 +587,13 @@
 				AEE8EFA5223AC370008BE6C6 /* Config.swift in Sources */,
 				AE0C2081223C45D50073D0A8 /* WeatherDetailsRemote.swift in Sources */,
 				AE89E0CF223D478600731321 /* DailyWeatherViewModel.swift in Sources */,
+				AEA5DAD7223F83AB0069523B /* BaseTableViewCell.swift in Sources */,
 				AE89E0CD223D467300731321 /* FiveDayWeatherViewModel.swift in Sources */,
 				AE0C2089223C4EF70073D0A8 /* Double+Extension.swift in Sources */,
 				AE0C2074223C00040073D0A8 /* Endpoint.swift in Sources */,
 				AEA184E4223D92C400EAC637 /* OneDayWeatherTableViewCell.swift in Sources */,
 				AE0C2086223C46260073D0A8 /* WeatherDetailsDomain.swift in Sources */,
+				AEA960F5223F87D30001B958 /* DailyWeatherMainTableViewCell.swift in Sources */,
 				AE5E99AA223CE10100DCDBD4 /* Date+Extension.swift in Sources */,
 				AEA184E7223D92E000EAC637 /* OneDayWeatherSectionModel.swift in Sources */,
 				AE0C2072223BFF290073D0A8 /* HTTPClient.swift in Sources */,
@@ -548,6 +606,8 @@
 				AE4F44B8223E12EA004D12C5 /* TitleLabelTableViewHeader.swift in Sources */,
 				AE9F073E223D115900D302F8 /* WeatherPagerViewController.swift in Sources */,
 				AE4F44BA223E13A9004D12C5 /* Font.swift in Sources */,
+				AEA960F8223F88840001B958 /* CellItem.swift in Sources */,
+				AEA5DAD9223F845A0069523B /* CellData.swift in Sources */,
 				AEA5DAD2223EC0650069523B /* Assets.swift in Sources */,
 				AE9F0737223D104D00D302F8 /* DailyWeatherViewController.swift in Sources */,
 				AE9F073D223D115900D302F8 /* WeatherPagerViewModel.swift in Sources */,
