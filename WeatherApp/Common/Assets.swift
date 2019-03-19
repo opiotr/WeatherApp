@@ -9,5 +9,5 @@
 import UIKit
 
 struct Assets {
-    static let refreshImage: UIImage = UIImage(named: "Refresh")!
+    static let refreshImage: UIImage? = UIImage(named: "Refresh")
 }

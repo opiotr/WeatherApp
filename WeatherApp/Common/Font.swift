@@ -9,7 +9,7 @@
 import UIKit
 
 struct Font {
-    static func helveticaNeueRegular(size: CGFloat) -> UIFont {
-        return UIFont(name: "HelveticaNeue", size: size)!
+    static func helveticaNeueRegular(size: CGFloat) -> UIFont? {
+        return UIFont(name: "HelveticaNeue", size: size)
     }
 }

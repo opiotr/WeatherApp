@@ -35,7 +35,7 @@ class TitleLabelTableViewHeader: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = Color.lightGray
+        backgroundColor = .white
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         setupConstraints()

@@ -19,12 +19,21 @@ class WeatherPagerViewController: UIViewController {
     
     private var pageViewController: UIPageViewController!
     private var viewControllers: [UIViewController] = []
+    
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.color = .gray
         activityIndicator.frame = view.bounds
         view.addSubview(activityIndicator)
         return activityIndicator
+    }()
+    
+    private lazy var emptyDataView: EmptyDataView = {
+        let customView = EmptyDataView(frame: view.bounds)
+        customView.setupActionButton(image: Assets.refreshImage, action: refreshData)
+        customView.isHidden = true
+        view.addSubview(customView)
+        return customView
     }()
     
     // MARK: - Life cycle
@@ -52,13 +61,14 @@ class WeatherPagerViewController: UIViewController {
     private func setupBindings() {
         viewModel.onLoadDataSuccess = { [weak self] data in
             self?.activityIndicator.stopAnimating()
+            self?.hideEmptyDataView()
             self?.setupPagerViewControllers(with: data)
             self?.setFirstPage()
         }
         
         viewModel.onLoadDataError = { [weak self] error in
             self?.activityIndicator.stopAnimating()
-            self?.presentAlert(with: error.localizedDescription)
+            self?.showEmptyDataView(withTitle: error.localizedDescription)
         }
     }
     
@@ -71,15 +81,19 @@ class WeatherPagerViewController: UIViewController {
         }
     }
     
-    private func presentAlert(with message: String) {
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "ok".localized, style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
     private func refreshData() {
+        hideEmptyDataView()
         activityIndicator.startAnimating()
         viewModel.loadData()
+    }
+    
+    private func showEmptyDataView(withTitle title: String) {
+        emptyDataView.setupTitle(with: title)
+        emptyDataView.isHidden = false
+    }
+    
+    private func hideEmptyDataView() {
+        emptyDataView.isHidden = true
     }
     
     // MARK: - Pager setup
