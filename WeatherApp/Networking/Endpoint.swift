@@ -34,8 +34,8 @@ final class Endpoint<Response> {
 // MARK: - Convenience init
 
 extension Endpoint where Response: Decodable {
-    convenience init(method: HTTPMethod = .get,
-                     path: String,
+    convenience init(path: String,
+                     method: HTTPMethod = .get,
                      parameters: Parameters? = nil,
                      encoding: ParameterEncoding = URLEncoding.default,
                      headers: HTTPHeaders? = nil) {
