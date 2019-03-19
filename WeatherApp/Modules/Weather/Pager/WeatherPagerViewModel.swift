@@ -30,26 +30,32 @@ class WeatherPagerViewModel {
     
     func loadData() {
         dataFetcher.fetchWeatherData(for: locationId, success: { [unowned self] data in
-            let domain = self.prepareDataForView(from: data)
-            self.onLoadDataSuccess?(domain)
-        }, failure: { error in
+            do {
+                let domain = try self.prepareDataForView(from: data)
+                self.onLoadDataSuccess?(domain)
+            } catch {
+                self.onLoadDataError?(error as NSError)
+            }
+        }, failure: { [unowned self] error in
             self.onLoadDataError?(error as NSError)
         })
     }
     
     // MARK: - Data mapping
     
-    private func prepareDataForView(from remoteObject: LocalWeatherRemote) -> LocalWeatherDomain {
-        let domain = createLocalWeatherDomain(remoteObject: remoteObject)
+    private func prepareDataForView(from remoteObject: LocalWeatherRemote) throws -> LocalWeatherDomain {
+        let domain = try createLocalWeatherDomain(remoteObject: remoteObject)
         return domain
     }
     
-    private func createLocalWeatherDomain(remoteObject: LocalWeatherRemote) -> LocalWeatherDomain {
+    private func createLocalWeatherDomain(remoteObject: LocalWeatherRemote) throws -> LocalWeatherDomain {
         let consolidatedWeather = remoteObject.consolidatedWeather
             .sorted(by: { $0.applicableDate < $1.applicableDate })
             .map { createWeatherDetailsDomain(from: $0) }
         
-        let currentDayWeather = consolidatedWeather.first! // TODO: Handle force unwrap
+        guard let currentDayWeather = consolidatedWeather.first else {
+            throw NSError(domain: "insufficientDataError", code: -1, userInfo: nil)
+        }
         let fiveDayWeather = Array(consolidatedWeather.dropFirst())
         
         return LocalWeatherDomain(locationName: remoteObject.title.uppercased(),

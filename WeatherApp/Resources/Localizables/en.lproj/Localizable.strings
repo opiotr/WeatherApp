@@ -17,7 +17,7 @@
 "weatherWindSpeed" = "Wind speed: %d mph";
 "weatherAirPressure" = "Air pressure: %d hPa";
 
-
 // Errors
 
 "prepareRequestUrlError" = "Preparing request url error";
+"insufficientDataError" = "Insufficient data to present weather, try again.";

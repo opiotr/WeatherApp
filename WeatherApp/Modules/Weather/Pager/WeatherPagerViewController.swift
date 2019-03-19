@@ -28,13 +28,21 @@ class WeatherPagerViewController: UIViewController {
         return activityIndicator
     }()
     
+    private lazy var emptyDataView: EmptyDataView = {
+        let customView = EmptyDataView(frame: view.bounds)
+        customView.setupActionButton(image: Assets.refreshImage, action: refreshData)
+        customView.isHidden = true
+        view.addSubview(customView)
+        return customView
+    }()
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         setupPageControl()
-        bindViewToViewModel()
+        setupBindings()
         activityIndicator.startAnimating()
         viewModel.loadData()
     }
@@ -50,16 +58,17 @@ class WeatherPagerViewController: UIViewController {
     
     // MARK: - Data binding
     
-    private func bindViewToViewModel() {
+    private func setupBindings() {
         viewModel.onLoadDataSuccess = { [weak self] data in
             self?.activityIndicator.stopAnimating()
+            self?.hideEmptyDataView()
             self?.setupPagerViewControllers(with: data)
             self?.setFirstPage()
         }
         
         viewModel.onLoadDataError = { [weak self] error in
             self?.activityIndicator.stopAnimating()
-            self?.presentAlert(with: error.localizedDescription)
+            self?.showEmptyDataView(withTitle: error.localizedDescription)
         }
     }
     
@@ -72,6 +81,23 @@ class WeatherPagerViewController: UIViewController {
         }
     }
     
+    private func refreshData() {
+        hideEmptyDataView()
+        activityIndicator.startAnimating()
+        viewModel.loadData()
+    }
+    
+    private func showEmptyDataView(withTitle title: String) {
+        emptyDataView.setupTitle(with: title)
+        emptyDataView.isHidden = false
+    }
+    
+    private func hideEmptyDataView() {
+        emptyDataView.isHidden = true
+    }
+    
+    // MARK: - Pager setup
+    
     private func setupPagerViewControllers(with data: LocalWeatherDomain) {
         let dailyWeatherController = controllerFactory.makeDailyWeatherViewController(for: data.locationName, with: data.currentDayWeather, refreshDataAction: refreshData)
         let fiveDayWeatherController = controllerFactory.makeFiveDayWeatherViewController(with: data.fiveDayWeather)
@@ -81,17 +107,6 @@ class WeatherPagerViewController: UIViewController {
     private func setFirstPage() {
         guard let controller = viewControllers.first else { return }
         pageViewController.setViewControllers([controller], direction: .forward, animated: false, completion: nil)
-    }
-    
-    private func presentAlert(with message: String) {
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "ok".localized, style: .default, handler: nil))
-        present(alertController, animated: true)
-    }
-    
-    private func refreshData() {
-        activityIndicator.startAnimating()
-        viewModel.loadData()
     }
 }
 

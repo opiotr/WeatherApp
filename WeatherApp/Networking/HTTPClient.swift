@@ -8,7 +8,7 @@
 
 import Alamofire
 
-final class HTTPClient {
+class HTTPClient {
     
     // MARK: - Private properties
     
