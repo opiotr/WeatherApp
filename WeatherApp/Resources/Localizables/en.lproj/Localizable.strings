@@ -1,0 +1,23 @@
+/* 
+  English.strings
+
+  Created by Piotr Olech on 14.03.2019.
+*/
+
+// Common
+
+"ok" = "Ok";
+
+// Weather
+
+"fiveDayWeatherTitle" = "FIVE DAY WEATHER";
+"weatherHumidity" = "Humidity: %d%%";
+"weatherMinTemp" = "Min temp: %@";
+"weatherMaxTemp" = "Max temp: %@";
+"weatherWindSpeed" = "Wind speed: %d mph";
+"weatherAirPressure" = "Air pressure: %d hPa";
+
+// Errors
+
+"prepareRequestUrlError" = "Preparing request url error";
+"insufficientDataError" = "Insufficient data to present weather, try again.";
