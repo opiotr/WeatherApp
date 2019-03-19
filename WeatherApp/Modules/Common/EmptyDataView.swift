@@ -18,6 +18,8 @@ class EmptyDataView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
+        label.numberOfLines = 2
+        label.lineBreakMode = .byWordWrapping
         label.font = Font.helveticaNeueRegular(size: 17)
         addSubview(label)
         return label
@@ -69,7 +71,7 @@ class EmptyDataView: UIView {
         
         addConstraints([
             NSLayoutConstraint(item: actionButton, attribute: .centerX, relatedBy: .equal, toItem: titleLabel, attribute: .centerX, multiplier: multiplier, constant: 0),
-            NSLayoutConstraint(item: actionButton, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .top, multiplier: multiplier, constant: 30),
+            NSLayoutConstraint(item: actionButton, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: multiplier, constant: 20),
             NSLayoutConstraint(item: actionButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: multiplier, constant: 30),
             NSLayoutConstraint(item: actionButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: multiplier, constant: 30)
             ])
