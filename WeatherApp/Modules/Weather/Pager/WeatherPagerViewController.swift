@@ -114,7 +114,7 @@ class WeatherPagerViewController: UIViewController {
 
 extension WeatherPagerViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = viewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = viewControllers.firstIndex(of: viewController) else {
             return nil
         }
         
@@ -127,7 +127,7 @@ extension WeatherPagerViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = viewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = viewControllers.firstIndex(of: viewController) else {
             return nil
         }
         
@@ -145,7 +145,7 @@ extension WeatherPagerViewController: UIPageViewControllerDataSource {
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         guard let firstViewController = viewControllers.first,
-            let firstViewControllerIndex = viewControllers.index(of: firstViewController) else {
+            let firstViewControllerIndex = viewControllers.firstIndex(of: firstViewController) else {
                 return 0
         }
         
