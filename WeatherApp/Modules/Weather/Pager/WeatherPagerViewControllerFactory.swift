@@ -6,37 +6,21 @@
 //  Copyright © 2019 Piotr Olech. All rights reserved.
 //
 
-import SwinjectStoryboard
+import UIKit
 
 class WeatherPagerViewControllerFactory {
     
-    // MARK: - Storyboard
-    
-    private let storyboard = SwinjectStoryboard.create(name: "Main", bundle: nil, container: DependencyContainer.container)
-    
-    // MARK: - Controller identifiers
-    
-    private let dailyWeatherViewControllerIdentifier = String(describing: DailyWeatherViewController.self)
-    private let fiveDayWeatherViewControllerIdentifier = String(describing: FiveDayWeatherViewController.self)
-    
     // MARK: - Factory methods
     
-    func makeDailyWeatherViewController(for locationName: String, with data: WeatherDetailsDomain, refreshDataAction: @escaping () -> Void) -> UIViewController {
-        guard let controller = storyboard.instantiateViewController(withIdentifier: dailyWeatherViewControllerIdentifier) as? DailyWeatherViewController else {
-            fatalError("Couldn't instantinate controller with identifier \(dailyWeatherViewControllerIdentifier)")
-        }
-        
-        controller.viewModel = DependencyContainer.container.resolve(DailyWeatherViewModel.self, arguments: locationName, data, refreshDataAction)
+    func makeDailyWeatherViewController(with data: WeatherDetailsDomain) -> UIViewController {
+        let viewModel = DependencyContainer.container.resolve(DailyWeatherViewModel.self, argument: data)!
+        let controller = DailyWeatherViewController(viewModel: viewModel)
         return controller
     }
     
     func makeFiveDayWeatherViewController(with weatherDataList: [WeatherDetailsDomain]) -> UIViewController {
-        guard let controller = storyboard.instantiateViewController(withIdentifier: fiveDayWeatherViewControllerIdentifier) as? FiveDayWeatherViewController else {
-            fatalError("Couldn't instantinate controller with identifier \(fiveDayWeatherViewControllerIdentifier)")
-        }
-        
-        controller.viewModel = DependencyContainer.container.resolve(FiveDayWeatherViewModel.self,
-                                                                     argument: weatherDataList)
+        let viewModel = DependencyContainer.container.resolve(FiveDayWeatherViewModel.self, argument: weatherDataList)!
+        let controller = FiveDayWeatherViewController(viewModel: viewModel)
         return controller
     }
 }

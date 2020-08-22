@@ -12,8 +12,6 @@ class DailyWeatherViewModel {
     
     // MARK: - Public properties
     
-    let locationName: String
-    let onRefreshData: () -> Void
     var onSectionsChange: (() -> Void)?
 
     // MARK: - Private properties
@@ -27,10 +25,8 @@ class DailyWeatherViewModel {
     
     // MARK: - Init
     
-    init(locationName: String, weatherDetails: WeatherDetailsDomain, refreshDataAction: @escaping () -> Void) {
-        self.locationName = locationName.uppercased()
+    init(weatherDetails: WeatherDetailsDomain) {
         self.weatherDetails = weatherDetails
-        self.onRefreshData = refreshDataAction
     }
     
     // MARK: - Section building

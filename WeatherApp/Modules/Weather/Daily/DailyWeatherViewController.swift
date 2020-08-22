@@ -8,43 +8,36 @@
 
 import UIKit
 
-class DailyWeatherViewController: UIViewController {
+final class DailyWeatherViewController: UIViewController {
     
-    // MARK: - IBOutlets
+    // MARK: - Properties
+
+    private let tableView: UITableView = UITableView()
+    private let viewModel: DailyWeatherViewModel
     
-    @IBOutlet weak var locationNameLabel: UILabel!
-    @IBOutlet weak var refreshButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    // MARK: - Init
     
-    // MARK: - Public properties
+    init(viewModel: DailyWeatherViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    var viewModel: DailyWeatherViewModel!
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupLocationNameLabel()
-        setupRefreshButton()
+        setupAutoLayout()
         setupTableView()
         setupBindings()
         viewModel.buildSections()
     }
     
     // MARK: - Setup
-    
-    private func setupLocationNameLabel() {
-        locationNameLabel.font = Font.helveticaNeueRegular(size: 26)
-        locationNameLabel.textAlignment = .center
-        locationNameLabel.text = viewModel.locationName
-    }
-    
-    private func setupRefreshButton() {
-        refreshButton.imageView?.contentMode = .scaleAspectFit
-        refreshButton.setImage(Assets.refreshImage, for: .normal)
-        refreshButton.addTarget(self, action: #selector(refreshButtonTapped), for: .touchUpInside)
-    }
     
     private func setupTableView() {
         tableView.register(UINib(nibName: DailyWeatherMainTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: DailyWeatherMainTableViewCell.identifier)
@@ -56,18 +49,24 @@ class DailyWeatherViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    private func setupAutoLayout() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
     // MARK: - Data binding
     
     private func setupBindings() {
         viewModel.onSectionsChange = { [weak self] in
             self?.tableView.reloadData()
         }
-    }
-    
-    // MARK: - Actions
-    
-    @objc private func refreshButtonTapped() {
-        viewModel.onRefreshData()
     }
 }
 
