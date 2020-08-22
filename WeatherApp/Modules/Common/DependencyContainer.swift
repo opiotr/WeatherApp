@@ -7,29 +7,18 @@
 //
 
 import Swinject
-import SwinjectStoryboard
 
 final class DependencyContainer {
     static var container: Container = {
         let container = Container()
-        
-        // MARK: - Controllers
-        
-        container.storyboardInitCompleted(WeatherPagerViewController.self) { resolver, controller in
-            controller.viewModel = resolver.resolve(WeatherPagerViewModel.self)
-            controller.controllerFactory = resolver.resolve(WeatherPagerViewControllerFactory.self)
-        }
-        container.storyboardInitCompleted(DailyWeatherViewController.self) { _, _ in }
-        container.storyboardInitCompleted(FiveDayWeatherViewController.self) { _, _ in }
-        container.storyboardInitCompleted(UIPageViewController.self) { _, _ in }
         
         // MARK: - View models
         
         container.register(WeatherPagerViewModel.self) { resolver in
             WeatherPagerViewModel(dataFetcher: resolver.resolve(WeatherDataFetcher.self)!)
         }
-        container.register(DailyWeatherViewModel.self) { resolver, locationName, weatherDetails, refreshDataAction in
-            DailyWeatherViewModel(locationName: locationName, weatherDetails: weatherDetails, refreshDataAction: refreshDataAction)
+        container.register(DailyWeatherViewModel.self) { resolver, weatherDetails in
+            DailyWeatherViewModel(weatherDetails: weatherDetails)
         }
         container.register(FiveDayWeatherViewModel.self) { resolver, weatherDataList in
             FiveDayWeatherViewModel(weatherDataList: weatherDataList)

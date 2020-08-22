@@ -10,28 +10,49 @@ import UIKit
 
 class FiveDayWeatherViewController: UIViewController {
     
-    // MARK: - IBOutlets
+    // MARK: - Properties
     
-    @IBOutlet weak var tableView: UITableView!
+    private let tableView: UITableView = UITableView()
+    private let viewModel: FiveDayWeatherViewModel
     
-    // MARK: - Public properties
+    // MARK: - Init
     
-    var viewModel: FiveDayWeatherViewModel!
+    init(viewModel: FiveDayWeatherViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBindings()
+        setupAutoLayout()
         setupTableView()
+        setupBindings()
         viewModel.buildSections()
     }
     
     // MARK: - Setup
     
+    private func setupAutoLayout() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
     private func setupTableView() {
-        tableView.register(UINib(nibName: OneDayWeatherTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: OneDayWeatherTableViewCell.identifier)
+        tableView.register(OneDayWeatherTableViewCell.self, forCellReuseIdentifier: OneDayWeatherTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = .zero

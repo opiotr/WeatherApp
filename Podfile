@@ -3,8 +3,7 @@ target 'WeatherApp' do
   use_frameworks!
 
   pod 'Alamofire', '4.9.1'
-  pod 'Swinject', '2.6.2'
-  pod 'SwinjectStoryboard'
+  pod 'Swinject'
   pod 'Kingfisher'
 
   target 'WeatherAppTests' do
