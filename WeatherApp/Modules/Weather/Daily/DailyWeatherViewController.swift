@@ -40,8 +40,8 @@ final class DailyWeatherViewController: UIViewController {
     // MARK: - Setup
     
     private func setupTableView() {
-        tableView.register(UINib(nibName: DailyWeatherMainTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: DailyWeatherMainTableViewCell.identifier)
-        tableView.register(UINib(nibName: DailyWeatherDetailsTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: DailyWeatherDetailsTableViewCell.identifier)
+        tableView.register(DailyWeatherMainTableViewCell.self, forCellReuseIdentifier: DailyWeatherMainTableViewCell.identifier)
+        tableView.register(DailyWeatherDetailsTableViewCell.self, forCellReuseIdentifier: DailyWeatherDetailsTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension

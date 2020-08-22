@@ -52,7 +52,7 @@ class FiveDayWeatherViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.register(UINib(nibName: OneDayWeatherTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: OneDayWeatherTableViewCell.identifier)
+        tableView.register(OneDayWeatherTableViewCell.self, forCellReuseIdentifier: OneDayWeatherTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = .zero
